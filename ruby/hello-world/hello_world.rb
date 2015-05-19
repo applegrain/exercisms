@@ -1,10 +1,6 @@
 class HelloWorld
 
-  def self.hello(input=nil)
-    if input == nil
-      "Hello, world!"
-    else
+  def self.hello(input="world")
       "Hello, #{input}!"
-    end
   end
 end
