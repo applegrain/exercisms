@@ -1,6 +1,10 @@
 class Hamming
 
   def self.compute(string1, string2)
+    if string1.length != string2.length
+      raise ArgumentError
+    end
+
     string1 = string1.chars
     string2 = string2.chars
     count = 0
