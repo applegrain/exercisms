@@ -1,19 +1,25 @@
 class Complement
 
+  def self.invalid_character(strand, letter)
+      if strand.count(letter) != 0
+        raise ArgumentError
+        puts "Invalid character"
+      end
+  end
+
   def self.of_dna(strand)
-    require 'pry'; binding.pry
-    if strand.count("U") != 0
-      raise ArgumentError
+    if invalid_character(strand, "U")
     else
       strand.tr('GCTA', 'CGAU')
     end
   end
 
   def self.of_rna(strand)
-    if strand.count("T") != 0
-      raise ArgumentError
+    if invalid_character(strand, "T")
     else
-    strand.tr('GCAU', 'CGTA')
+      strand.tr('GCAU', 'CGTA')
     end
   end
 end
+
+
