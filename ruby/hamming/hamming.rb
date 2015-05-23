@@ -6,8 +6,7 @@ class Hamming
     count = 0
 
     if strand1.count != strand2.count
-      fail ArgumentError
-      puts 'Strands are not of equal length.'
+      fail ArgumentError, 'Strands are not of equal length.'
     end
 
     strand1.each.with_index do |n, i|
