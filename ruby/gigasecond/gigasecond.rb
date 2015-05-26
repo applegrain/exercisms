@@ -1,6 +1,8 @@
 class Gigasecond
 
+  SECONDS = 10**9
+
   def self.from(time)
-    time += 10**9
+    time + SECONDS
   end
 end
