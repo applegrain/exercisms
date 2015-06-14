@@ -1,10 +1,10 @@
 class Year
 
   def self.leap?(year)
-    if year % 4 == 0
-      if year % 100 == 0 && year % 400 == 0
+    if div_by?(year, 4)
+      if div_by?(year, 100) && div_by?(year, 400)
         true
-      elsif year % 100 == 0
+      elsif div_by?(year, 100)
         false
       else
         true
@@ -12,5 +12,9 @@ class Year
     else
       false
     end
+  end
+
+  def self.div_by?(year, num)
+    year % num == 0
   end
 end
