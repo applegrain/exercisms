@@ -1,14 +1,10 @@
 class Grains
 
   def self.square(number)
-    if number == 1
-      number
-    else
-      array = [*1..number]
-      sum = 1
-      array.reduce do |num|
-        sum = sum * 2
-      end
+    1 if number == 1
+    array = [*2..number]
+    array.inject(1) do |sum|
+      sum = sum * 2
     end
   end
 
