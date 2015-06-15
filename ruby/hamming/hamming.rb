@@ -1,15 +1,16 @@
 # Computes the Hamming distance of two DNA strands
 class Hamming
-  def self.compute(strand1, strand2)
-    strand1 = strand1.chars
-    strand2 = strand2.chars
-    count = 0
 
-    if strand1.count != strand2.count
+  def self.check_lengths(strand1, strand2)
+    if strand1.length != strand2.length
       fail ArgumentError, 'Strands are not of equal length.'
     end
+  end
 
-    strand1.each.with_index do |n, i|
+  def self.compute(strand1, strand2)
+    check_lengths(strand1, strand2)
+    count = 0
+    strand1.chars.each.with_index do |n, i|
       count += 1 if n != strand2[i]
     end
     count
