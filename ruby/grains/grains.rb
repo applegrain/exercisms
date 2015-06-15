@@ -11,7 +11,6 @@ class Grains
   def self.total
     array = (1..64).inject([]) do |array, int|
       array << self.square(int)
-    end
-    array.reduce(:+)
+    end.inject(:+)
   end
 end
