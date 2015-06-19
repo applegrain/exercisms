@@ -7,17 +7,14 @@ class Raindrops
       7 => 'Plong'
     }
 
-    string = ''
-    rainsounds.each do |(key, value)|
-      if num % key == 0
-        string << value
-        end
-      end
-    if string.empty?
-      num.to_s
-    else
-      string
-    end
+    # sounds = []
+    sounds = rainsounds.each_with_object(Array.new) do |(factor, word), drops|
+      drops << word if num % factor == 0
+    end.join
+    sounds.empty? ? num.to_s : sounds
   end
 end
 
+#iterate over the number given
+#if the number is divisible by a key
+# add the corresponding value to an array

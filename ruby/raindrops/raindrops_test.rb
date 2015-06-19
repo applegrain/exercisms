@@ -1,4 +1,4 @@
-  require 'minitest/autorun'
+require 'minitest/autorun'
 require 'minitest/pride'
 require_relative 'raindrops'
 
@@ -12,7 +12,6 @@ class RaindropsTest < Minitest::Test
   end
 
   def test_5
-
     assert_equal 'Plang', Raindrops.convert(5)
   end
 
