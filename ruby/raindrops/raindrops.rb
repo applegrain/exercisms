@@ -14,7 +14,3 @@ class Raindrops
     sounds.empty? ? num.to_s : sounds
   end
 end
-
-#iterate over the number given
-#if the number is divisible by a key
-# add the corresponding value to an array
