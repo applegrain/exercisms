@@ -7,7 +7,6 @@ class Raindrops
       7 => 'Plong'
     }
 
-    # sounds = []
     sounds = rainsounds.each_with_object(Array.new) do |(factor, word), drops|
       drops << word if num % factor == 0
     end.join
