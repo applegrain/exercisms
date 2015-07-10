@@ -7,7 +7,7 @@ class FoodChain
   end
 
   def self.animals
-     [
+    [
       {animal: "fly"},
       {animal: "spider", description: "It wriggled and jiggled and tickled inside her."},
       {animal: "bird", description: "How absurd to swallow a bird!"},
@@ -21,12 +21,15 @@ class FoodChain
 
   def self.verse(index)
     current = animals[index]
-
     return last_verse(current) if current[:animal] == "horse"
+
     opening = self.opening(current[:animal])
     closing = self.closing
+    compose_verse(opening, closing, current, index)
+  end
 
-    arr = [
+  def self.compose_verse(opening, closing, current, index)
+    [
       opening,
       description(current),
       generate_middle_part(index),
@@ -42,6 +45,10 @@ class FoodChain
     lines = [*0..index].reverse.map do |index|
       self.swallowed_animal(animals[index][:animal], animals[index-1][:animal])
     end
+    edge_cases_middle_verse(lines)
+  end
+
+  def self.edge_cases_middle_verse(lines)
     verse = lines.empty? ? "" : lines
     add_spider_description(verse)
   end
@@ -52,12 +59,12 @@ class FoodChain
 
   def self.add_spider_description(middle_verse)
     middle_verse.map do |line|
-      if line[36..-2] == ("spider")
-        line.chop + " that wriggled and jiggled and tickled inside her."
-      else
-        line
-      end
+      line[36..-2] == ("spider") ? line.chop + add_last_spider_description : line
     end
+  end
+
+  def self.add_last_spider_description
+    animals[1][:description].gsub("It", " that")
   end
 
   def self.opening(animal)
