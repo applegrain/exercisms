@@ -40,22 +40,10 @@ module.exports = {
 
     var lines = [opening(current.animal)]
 
-// if it is the final element in VERSES
-//
-
     if (index == VERSES.length - 1) {
-      lines.push("She's dead, of course!")
+      lines.push("She's dead, of course!");
     } else {
-      var middle = middle_lines(previous);
-
-      if (current.intro) {
-        lines.push(current.intro);
-      }
-
-      if (middle) {
-        lines.push(middle);
-      }
-      lines.push(closing());
+      isNotLastVerse(lines, current, previous);
     }
 
     return lines.join("\n") + "\n";
@@ -77,26 +65,38 @@ function closing () {
   return "I don't know why she swallowed the fly. Perhaps she'll die.";
 }
 
-// helper function for lines 91 - 93
-  // return the animal or the animal + chased
+function isNotLastVerse(lines, current, previous) {
+  var middle = middle_lines(previous);
 
-  // lots of small functions - reusable
+  if (current.intro) {
+    lines.push(current.intro);
+  }
+
+  if (middle) {
+    lines.push(middle);
+  }
+
+  lines.push(closing());
+}
 
 function middle_lines (previous) {
   var lines = [];
 
   for (var i = 1; i < previous.length; i++) {
-
     var firstAnimal = previous[i].animal;
     var second = previous[i - 1];
     var secondAnimal = second.animal;
+
+    line(firstAnimal, secondAnimal, second, lines)
+  }
+  return lines.reverse().join("\n")
+}
+
+function line(firstAnimal, secondAnimal, second, lines) {
 
     if (second.chased) {
       secondAnimal += " " + second.chased;
     }
 
     lines.push("She swallowed the " + firstAnimal + " to catch the " + secondAnimal + ".");
-  }
-
-  return lines.reverse().join("\n")
 }
