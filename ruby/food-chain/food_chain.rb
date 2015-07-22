@@ -32,7 +32,7 @@ class FoodChain
     [
       opening,
       description(current),
-      generate_middle_part(index),
+      middle_lines(index),
       closing
     ].flatten.reject(&:empty?).join("\n")
   end
@@ -41,29 +41,29 @@ class FoodChain
     current[:animal] == "fly" ? "" : current[:description]
   end
 
-  def self.generate_middle_part(index)
+  def self.middle_lines(index)
     lines = [*0..index].reverse.map do |index|
       self.swallowed_animal(animals[index][:animal], animals[index-1][:animal])
     end
-    edge_cases_middle_verse(lines)
+    trailing(lines)
   end
 
-  def self.edge_cases_middle_verse(lines)
+  def self.trailing(lines)
     verse = lines.empty? ? "" : lines
-    add_spider_description(verse)
+    spider_description(verse)
   end
 
   def self.swallowed_animal(current, previous)
     verse = current == "fly" ? "" : "She swallowed the #{current} to catch the #{previous}."
   end
 
-  def self.add_spider_description(middle_verse)
+  def self.spider_description(middle_verse)
     middle_verse.map do |line|
-      line[36..-2] == ("spider") ? line.chop + add_last_spider_description : line
+      line[36..-2] == ("spider") ? line.chop + format_spider_description : line
     end
   end
 
-  def self.add_last_spider_description
+  def self.format_spider_description
     animals[1][:description].gsub("It", " that")
   end
 
