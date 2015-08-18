@@ -1,5 +1,7 @@
 # Anagram
 
+**note**: I rewrote the tests, so they are not the same as the exercism tests but the program should have the same functionality. 
+
 Write a program that, given a word and a list of possible anagrams, selects the correct sublist.
 
 Given `"listen"` and a list of candidates like `"enlists" "google"
