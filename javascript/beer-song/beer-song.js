@@ -10,6 +10,7 @@ module.exports = {
   },
   sing: function(start, end) {
     end = typeof end !== 'undefined' ?  end : 0;
+
     var verses = [];
     for(var i = start; i >= end; i--) {
       verses.push(this.verse(i));
