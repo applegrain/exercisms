@@ -1,41 +1,24 @@
-module.exports = dna;
+function Nucleotide(n) {
+  var nucleotides = n || ""
 
-function dna(strand) {
-  if (strand) isValidStrand(strand);
+  if (nucleotides) isValidStrand(nucleotides);
 
-  var strand = (strand || '');
-
-  return Object.create({
-    count: count.bind(null, strand),
-    histogram: histogram.bind(null, strand)
-  });
-}
-
-function count(strand, nucleotide) {
-  var acidCount = 0
-
-  strand.split("").map(function(n) {
-    if (n === nucleotide) {
-      acidCount += 1
-    }
-  })
-
-  return acidCount;
-}
-
-function histogram(strand) {
-  return {
-    'A': count(strand, 'A'),
-    'T': count(strand, 'T'),
-    'C': count(strand, 'C'),
-    'G': count(strand, 'G')
+  this.isValidStrand = function(nucleotides) {
+    nucleotides.split("").forEach(function(n) {
+      if (!histogram(nucleotides).hasOwnProperty(n)) throw "The strand is not valid"
+    });
   }
+
+  this.count = function(acid) {
+    var regExp = new RegExp(acid, 'g');
+    return (nucleotides.match(regExp)||[]).length
+  };
+
+  this.histogram = function() {
+    return { A : count('A'), T : count('T'), C : count('C'), G : count('G') };
+  }
+
+  return this;
 }
 
-function isValidStrand(strand) {
-  for (var i = 1; i < strand.length; i++) {
-    if (!histogram(strand).hasOwnProperty(strand[i])) {
-      throw "The strand is not valid.";
-    }
-  }
-}
+module.exports = Nucleotide;
