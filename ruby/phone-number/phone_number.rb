@@ -5,25 +5,16 @@ class PhoneNumber
   end
 
   def clean_number(number)
-    if number.match(/[a-zA-Z]/)
-      return "0000000000"
-    end
+    return "0000000000" if number.match(/[a-zA-Z]/)
     number.gsub!(/[^\d]/, '')
 
     valid_length?(number)
   end
 
   def valid_length?(number)
-    if eleven_digits?(number)
-      return number[1..10]
-    end
-
+    return number[1..10] if number.length == 11 && number[0] == "1"
     return "0000000000" if number.length != 10
     number
-  end
-
-  def eleven_digits?(number)
-    number.length == 11 && number[0] == "1"
   end
 
   def area_code
