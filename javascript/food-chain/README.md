@@ -1,6 +1,12 @@
 # Food Chain
 
-Write a program that outputs the lyrics of the song 'I Know an Old Lady Who Swallowed a Fly'
+Write a program that generates the lyrics of the song 'I Know an Old Lady Who Swallowed a Fly'
+
+Write a program that generates the lyrics to the song
+"I know an old lady who swallowed a fly". While you could
+copy/paste the lyrics, or read them from a file, this
+problem is much more interesting if you approach it
+algorithmically.
 
 This is a [cumulative song](http://en.wikipedia.org/wiki/Cumulative_song) of unknown origin.
 
@@ -64,7 +70,7 @@ She's dead, of course!
 Go through the setup instructions for JavaScript to
 install the necessary dependencies:
 
-http://help.exercism.io/getting-started-with-javascript.html
+http://exercism.io/languages/javascript
 
 ## Making the Test Suite Pass
 

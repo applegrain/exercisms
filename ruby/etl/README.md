@@ -44,25 +44,34 @@ variety of languages, each with its own unique scoring table. For
 example, an "A" is scored at 14 in the Basque-language version of the
 game while being scored at 9 in the Latin-language version.
 
-## Setup
+* * * *
 
-Go through the setup instructions for JavaScript to
-install the necessary dependencies:
+For installation and learning resources, refer to the
+[exercism help page](http://exercism.io/languages/ruby).
 
-http://exercism.io/languages/javascript
+For running the tests provided, you will need the Minitest gem. Open a
+terminal window and run the following command to install minitest:
 
-## Making the Test Suite Pass
+    gem install minitest
 
-Execute the tests with:
+If you would like color output, you can `require 'minitest/pride'` in
+the test file, or note the alternative instruction, below, for running
+the test file.
 
-```bash
-$ jasmine-node .
-```
+In order to run the test, you can run the test file from the exercise
+directory. For example, if the test suite is called
+`hello_world_test.rb`, you can run the following command:
 
-In many test suites all but the first test have been skipped.
+    ruby hello_world_test.rb
 
-Once you get a test passing, you can unskip the next one by
-changing `xit` to `it`.
+To include color from the command line:
+
+    ruby -rminitest/pride hello_world_test.rb
+
+The test files may have the execution bit set so you may also be able to
+run it like this:
+
+    ./hello_world_test.rb
 
 
 ## Source

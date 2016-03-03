@@ -23,7 +23,7 @@ each nucleotide with its complement:
 Go through the setup instructions for JavaScript to
 install the necessary dependencies:
 
-http://help.exercism.io/getting-started-with-javascript.html
+http://exercism.io/languages/javascript
 
 ## Making the Test Suite Pass
 

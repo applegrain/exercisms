@@ -1,16 +1,10 @@
-# Word Count
+# Pangram
 
-Write a program that given a phrase can count the occurrences of each word in that phrase.
+Determine if a sentence is a pangram.
 
-For example for the input `"olly olly in come free"`
-
-```plain
-olly: 2
-in: 1
-come: 1
-free: 1
-```
-
+Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan gramma,
+"every letter") is a sentence using every letter of the alphabet at least once.
+The best known English pangram is "The quick brown fox jumps over the lazy dog."
 
 ## Setup
 
@@ -35,4 +29,4 @@ changing `xit` to `it`.
 
 ## Source
 
-This is a classic toy problem, but we were reminded of it by seeing it in the Go Tour. [view source]()
+Wikipedia [view source](https://en.wikipedia.org/wiki/Pangram)

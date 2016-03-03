@@ -9,9 +9,11 @@ RX837 or BC811.
 
 Every once in a while we need to reset a robot to its factory settings,
 which means that their name gets wiped. The next time you ask, it will
-respond with a new name.
+respond with a new random name.
 
-Random names means a risk of collisions. In some exercism language
+The names must be random: they should not follow a predictable sequence.
+Random names means a risk of collisions. Your solution should not allow
+the use of the same name twice when avoidable. In some exercism language
 tracks there are tests to ensure that the same name is never used twice.
 
 ## Setup
@@ -19,7 +21,7 @@ tracks there are tests to ensure that the same name is never used twice.
 Go through the setup instructions for JavaScript to
 install the necessary dependencies:
 
-http://help.exercism.io/getting-started-with-javascript.html
+http://exercism.io/languages/javascript
 
 ## Making the Test Suite Pass
 
