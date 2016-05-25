@@ -1,0 +1,7 @@
+(require 'hello-world')
+exit
+(require 'hello-world-test')
+exit
+(defn hello ([] hello) [str hello])
+exit
+(if (= "lovisa" "lovisa) "yee" "nooo")
