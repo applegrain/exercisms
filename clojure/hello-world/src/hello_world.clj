@@ -2,6 +2,5 @@
 
 (defn hello ([] (hello "World"))
   ([name]
-    (str "Hello, "
-      (if (= name "Lovisa") "Myself" name) "!")
-    ))
+    (let [name (if (= name "Lovisa") "Myself" name)]
+      (str "Hello, " name "!"))))
