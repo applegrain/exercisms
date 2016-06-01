@@ -1,7 +1,7 @@
 (ns hello-world)
 
-(defn hello
-  ([] (hello "World"))
+(defn hello ([] (hello "World"))
   ([name]
-    (if (= name "Lovisa") (def n "Myself") (def n name))
-            (str "Hello, " n "!")))
+    (str "Hello, "
+      (if (= name "Lovisa") "Myself" name) "!")
+    ))
