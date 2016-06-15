@@ -1,6 +1,0 @@
-s = "hello"
-s
-(def s "hello")
-s
-(def b "hellO")
-(= s b)

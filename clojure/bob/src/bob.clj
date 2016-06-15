@@ -1,10 +1,15 @@
 (ns bob
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str])
+
+(defn no-letters
+  "Returns true if the expression does not contain letters"
+  [expression]
+  (re-find #"[a-zA-Z]+" expression))
 
 (defn is-all-uppercase
   "Returns true if all characters are uppercase"
   [expression]
-  (= expression (str/upper-case expression)))
+  (when (no-letters expression) (= expression (str/upper-case expression))))
 
 (defn is-silence
   "Returns true if the expression is empty"
