@@ -19,3 +19,9 @@
 
 (deftest it-validates-dna-strands
   (is (thrown? AssertionError (rna-transcription/to-rna "XCGFGGTDTTAA"))))
+
+(deftest it-validates-dna-strand
+  (is (rna-transcription/is-valid-dna-strand? "C")))
+
+(deftest it-validates-dna-strands
+  (is (not (rna-transcription/is-valid-dna-strand? "X"))))
