@@ -1,20 +1,31 @@
-module.exports = function(word) {
+'use strict';
 
-  this.isIsogram = function() {
-    var sanitized = word.toLowerCase().replace(/ /g,'').replace(/-/g, '').split('');
+class Isogram {
+  constructor(word) {
+    this.word = this._sanitize(word);
+  }
 
-    var categorized = sanitized.reduce(function(hash, letter) {
+  isIsogram() {
+    let categorized = this.categorize();
+
+    return Object.keys(categorized).filter(function(el) {
+      return categorized[el] > 1;
+    }).length === 0;
+  }
+
+  categorize() {
+    return this.word.reduce(function(hash, letter) {
       if (!hash.hasOwnProperty(letter)) {
         hash[letter] = 0;
       }
       hash[letter] = hash[letter] + 1;
       return hash;
     }, {});
-
-    var moreThanOneOccurrence = Object.keys(categorized).filter(function(el) {
-      return categorized[el] > 1;
-    });
-
-    return moreThanOneOccurrence.length === 0;
   }
-}
+
+  _sanitize(input) {
+    return input.toLowerCase().replace(/ /g,'').replace(/-/g, '').split('');
+  }
+};
+
+module.exports = Isogram;
