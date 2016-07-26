@@ -6,13 +6,16 @@
   [word]
   (re-find (re-pattern "[a-z0-9][a-z]*") word))
 
+(defn categorize
+  "Counts the words"
+  [hash word]
+  (update-in hash [word] (fnil inc 0)))
+
 (defn word-count
   "Given a phrase it counts the occurrences of each word in that phrase"
   [phrase]
-     (reduce
-      (fn [hash word]
-        (if (contains? hash word)
-          (update-in hash [word] inc)
-          (assoc hash word 1)))
-      (hash-map)
-      (remove nil? (map strip-punctuation (map str/lower-case (str/split phrase #" "))))))
+     (reduce categorize (hash-map)
+      (->> (str/split phrase #" ")
+           (map str/lower-case)
+           (map strip-punctuation)
+           (remove nil?))))
