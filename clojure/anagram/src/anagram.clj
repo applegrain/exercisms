@@ -4,8 +4,10 @@
 (defn anagrams-for
   "Returns all anagrams for a given word"
   [word, list]
-  (filter
+   (filter
     (fn [w]
-      (and (= (sort (str/lower-case w)) (sort (str/lower-case word)))
-           (not= (str/lower-case w) (str/lower-case word)))) 
+      (let [original (str/lower-case w)
+            test (str/lower-case word)]
+       (and (= (sort original) (sort test))
+            (not= original test))))
     list))
